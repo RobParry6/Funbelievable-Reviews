@@ -25,7 +25,7 @@ const Reviews = () => {
   return (
     <ul id={styles.review__list}>
       {reviews.map((review) => {
-        return <ReviewCard review={review}></ReviewCard>;
+        return <ReviewCard key={review.title} review={review}></ReviewCard>;
       })}
     </ul>
   );
