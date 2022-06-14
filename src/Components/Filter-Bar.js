@@ -28,7 +28,9 @@ const FilterBar = ({ categories, setCategory }) => {
               key={category.slug}
               value={category.slug}
             >
-              {category.slug}
+              {category.slug.split("-").map((word) => {
+                return word[0].toUpperCase() + word.slice(1) + " ";
+              })}
             </option>
           );
         })}

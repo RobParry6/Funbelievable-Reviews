@@ -6,21 +6,35 @@ const ReviewCard = ({ review }) => {
 
   return (
     <li id={styles.review__list__item} key={review.title}>
-      <h3>{review.title}</h3>
+      <h3
+        className={
+          review.votes >= 25
+            ? styles.title__gold
+            : review.votes >= 10
+            ? styles.title__silver
+            : review.votes >= 5
+            ? styles.title__bronze
+            : styles.title__regular
+        }
+      >
+        {review.title}
+      </h3>
       <img
         className={styles.review__list__img}
         src={review.review_img_url}
         alt={review.title}
       ></img>
-      <p>
-        Review by: <b>{review.owner}</b>
-      </p>
-      <p>
-        Created at: {timeStamp[0]} on {timeStamp[1]}
-      </p>
-      <p>
-        Endorsements: <b>{review.votes}</b>
-      </p>
+      <section className={styles.review__card__text}>
+        <p>
+          Review by: <b>{review.owner}</b>
+        </p>
+        <p>
+          Created at: {timeStamp[0]} on {timeStamp[1]}
+        </p>
+        <p>
+          Endorsements: <b>{review.votes}</b>
+        </p>
+      </section>
     </li>
   );
 };
