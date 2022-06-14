@@ -18,10 +18,13 @@ const FilterBar = ({ categories, setCategory }) => {
     <form className={styles.filter__bar__section} onSubmit={handleSubmit}>
       Categories
       <select onChange={handleChange} value={selectedCatagory}>
+        <option className={styles.dropdown__element} value="">
+          All Categories
+        </option>
         {categories.map((category) => {
           return (
             <option
-              className={styles.Dropdown__element}
+              className={styles.dropdown__element}
               key={category.slug}
               value={category.slug}
             >
