@@ -1,0 +1,15 @@
+.Dropdown__element {
+  text-transform: capitalize;
+}
+
+.filter__bar__section {
+  margin: auto;
+  margin-top: 170px;
+}
+
+@media only screen and (min-width: 492px) {
+  .filter__bar__section {
+    margin-top: 135px;
+    flex-direction: row;
+  }
+}
