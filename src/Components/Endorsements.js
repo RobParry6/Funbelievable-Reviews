@@ -5,17 +5,24 @@ import { patchEndorsements, getIndividualReview } from "../Utils/Api-Calls";
 const Endorsements = ({ endorsements, review_id }) => {
   const [currentEndorsements, setCurrentEndorsements] = useState(endorsements);
   const [error, setError] = useState(null);
+  const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
     getIndividualReview(review_id).then(({ votes }) => {
       setCurrentEndorsements(votes);
     });
-  }, [review_id, currentEndorsements]);
+  }, [review_id]);
 
-  const handleClick = () => {
-    setCurrentEndorsements((currentEndorsements) => currentEndorsements + 1);
-    patchEndorsements(review_id, 1).catch((error) => {
-      setCurrentEndorsements((currentEndorsements) => currentEndorsements - 1);
+  const handleClick = ({ target }) => {
+    target.disabled = true;
+    setClicked(true);
+    setCurrentEndorsements(
+      (currentEndorsements) => currentEndorsements + +target.value
+    );
+    patchEndorsements(review_id, +target.value).catch((error) => {
+      setCurrentEndorsements(
+        (currentEndorsements) => currentEndorsements - +target.value
+      );
       setError(
         "Your endorsement of this review has not acsecnded to the ether, please try again."
       );
@@ -28,7 +35,12 @@ const Endorsements = ({ endorsements, review_id }) => {
       <p>
         Current Endorsement Count: <b>{currentEndorsements}</b>
       </p>
-      <button onClick={handleClick}>Endorse this Review</button>
+      <button onClick={handleClick} value={1}>
+        Endorse this Review
+      </button>
+      <button onClick={handleClick} value={-1}>
+        Unendorse this Review
+      </button>
     </>
   );
 };
