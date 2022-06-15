@@ -47,3 +47,14 @@
     margin-top: 135px;
   }
 }
+
+#flexy {
+  display: flexbox;
+}
+
+@media only screen and (min-width: 700px) {
+  #flexy {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}

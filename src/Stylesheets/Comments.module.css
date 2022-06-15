@@ -1,0 +1,7 @@
+.comment__list__item {
+  background-color: cornsilk;
+  border: 1px solid black;
+  border-radius: 15px;
+  list-style: none;
+  margin: 6px;
+}
