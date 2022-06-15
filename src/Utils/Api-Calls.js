@@ -23,3 +23,9 @@ export const getIndividualReview = (review_id) => {
     return review;
   });
 };
+
+export const patchEndorsements = (review_id, numberToIncrement) => {
+  return apiCall.patch(`reviews/${review_id}`, {
+    inc_votes: numberToIncrement,
+  });
+};
