@@ -6,23 +6,21 @@ import timeConv from "../Utils/Time-Conversion";
 import GridLoader from "react-spinners/GridLoader";
 
 const Review = () => {
-  const [review, setReview] = useState({
-    created_at: "2021-01-18T10:01:41.251Z",
-  });
+  const [review, setReview] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [timeStamp, setTimeStamp] = useState([]);
   const { review_id } = useParams();
-  const timeStamp = timeConv(review.created_at);
 
   useEffect(() => {
     getIndividualReview(review_id)
       .then((reviewData) => {
         setReview(reviewData);
         setLoading(false);
+        setTimeStamp(timeConv(reviewData.created_at));
       })
       .catch((err) => {
         if (err) {
-          console.log("here");
           setError(true);
           setLoading(false);
         }
