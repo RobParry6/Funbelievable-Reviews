@@ -1,5 +1,6 @@
 import styles from "../Stylesheets/Review-Card.module.css";
 import timeConv from "../Utils/Time-Conversion";
+import Endorsements from "./Endorsements";
 import { Link } from "react-router-dom";
 
 const ReviewCard = ({ review }) => {
@@ -34,9 +35,10 @@ const ReviewCard = ({ review }) => {
         <p>
           Created at: {timeStamp[0]} on {timeStamp[1]}
         </p>
-        <p>
-          Endorsements: <b>{review.votes}</b>
-        </p>
+        <Endorsements
+          review_id={review.review_id}
+          endorsements={review.votes}
+        ></Endorsements>
       </section>
     </li>
   );

@@ -21,6 +21,7 @@ const FilterBar = ({ categories, setCategory }) => {
           All Categories
         </option>
         {categories.map((category) => {
+          console.log(category);
           return (
             <option
               className={styles.dropdown__element}

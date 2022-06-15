@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { getIndividualReview } from "../Utils/Api-Calls";
 import { useParams } from "react-router-dom";
 import timeConv from "../Utils/Time-Conversion";
+import Endorsements from "./Endorsements";
 import GridLoader from "react-spinners/GridLoader";
 
 const Review = () => {
@@ -77,9 +78,10 @@ const Review = () => {
         <p>
           Created at: {timeStamp[0]} on {timeStamp[1]}
         </p>
-        <p>
-          Endorsements: <b>{review.votes}</b>
-        </p>
+        <Endorsements
+          review_id={review.review_id}
+          endorsements={review.votes}
+        ></Endorsements>
       </section>
     </main>
   );
