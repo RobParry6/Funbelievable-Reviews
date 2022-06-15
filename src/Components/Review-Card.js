@@ -1,24 +1,27 @@
 import styles from "../Stylesheets/Review-Card.module.css";
 import timeConv from "../Utils/Time-Conversion";
+import { Link } from "react-router-dom";
 
 const ReviewCard = ({ review }) => {
   const timeStamp = timeConv(review.created_at);
 
   return (
     <li id={styles.review__list__item} key={review.title}>
-      <h3
-        className={
-          review.votes >= 25
-            ? styles.title__gold
-            : review.votes >= 10
-            ? styles.title__silver
-            : review.votes >= 5
-            ? styles.title__bronze
-            : styles.title__regular
-        }
-      >
-        {review.title}
-      </h3>
+      <Link to={`/reviews/${review.review_id}`}>
+        <h3
+          className={
+            review.votes >= 25
+              ? styles.title__gold
+              : review.votes >= 10
+              ? styles.title__silver
+              : review.votes >= 5
+              ? styles.title__bronze
+              : styles.title__regular
+          }
+        >
+          {review.title}
+        </h3>
+      </Link>
       <img
         className={styles.review__list__img}
         src={review.review_img_url}
