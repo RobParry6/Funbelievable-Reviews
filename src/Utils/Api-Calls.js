@@ -17,3 +17,9 @@ export const getCategories = () => {
     return data.categories;
   });
 };
+
+export const getIndividualReview = (review_id) => {
+  return apiCall.get(`reviews/${review_id}`).then(({ data: { review } }) => {
+    return review;
+  });
+};
