@@ -1,7 +1,18 @@
+.review__card__text {
+  border: solid 1px black;
+  background-color: aliceblue;
+  width: max-content;
+  margin: auto;
+  margin-bottom: 5px;
+  padding: 5px;
+  padding-inline: 16px;
+  border-radius: 15px/30px;
+}
+
 #review__list__item h3 {
-  background-color: rgb(237, 181, 107);
   border: outset rgb(205, 161, 104) 5px;
   border-radius: 30px;
+  min-width: 40%;
   max-width: max-content;
   margin: auto;
   padding: 15px;
@@ -30,4 +41,20 @@
   box-shadow: 2px 2px black;
   margin: 10px;
   width: 80%;
+}
+
+.title__regular {
+  background-color: tan;
+}
+
+.title__bronze {
+  background-image: url("../Images/Bronze.webp");
+}
+
+.title__silver {
+  background-image: url("../Images/Silver.jpeg");
+}
+
+.title__gold {
+  background-image: url("../Images/Gold.jpeg");
 }

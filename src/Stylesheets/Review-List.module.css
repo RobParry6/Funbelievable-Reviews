@@ -1,20 +1,13 @@
-#grid__loader {
-  color: rgb(205, 161, 104);
-}
-
 #review__list {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   margin: auto;
-  margin-top: 160px;
-  position: absolute;
 }
 
 @media only screen and (min-width: 492px) {
   #review__list {
-    margin-top: 125px;
     flex-direction: row;
   }
 }

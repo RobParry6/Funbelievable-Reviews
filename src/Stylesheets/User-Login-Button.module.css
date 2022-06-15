@@ -1,0 +1,11 @@
+#header__button,
+.loggedInUser {
+  background-color: aliceblue;
+  border: 3px solid;
+  border-radius: 16px;
+  font-size: medium;
+  margin: 5px;
+  padding: 6px;
+  padding-inline: 12px;
+  width: max-content;
+}
