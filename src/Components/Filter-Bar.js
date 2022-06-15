@@ -2,7 +2,7 @@ import styles from "../Stylesheets/Filter-Bar.module.css";
 import { useState } from "react";
 
 const FilterBar = ({ categories, setCategory }) => {
-  const [selectedCatagory, setSelectedCategory] = useState();
+  const [selectedCatagory, setSelectedCategory] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();

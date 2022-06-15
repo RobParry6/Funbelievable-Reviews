@@ -3,28 +3,31 @@ import { useState, useEffect } from "react";
 import { getIndividualReview } from "../Utils/Api-Calls";
 import { useParams } from "react-router-dom";
 import timeConv from "../Utils/Time-Conversion";
+import GridLoader from "react-spinners/GridLoader";
 
 const Review = () => {
   const [review, setReview] = useState({
-    title: "Ultimate Werewolf",
-    designer: "Akihisa Okui",
-    owner: "bainesface",
-    review_img_url:
-      "https://www.golenbock.com/wp-content/uploads/2015/01/placeholder-user.png",
-    review_body: "We couldn't find the werewolf!",
-    category: "social deduction,",
     created_at: "2021-01-18T10:01:41.251Z",
-    votes: 5,
   });
+  const [loading, setLoading] = useState(true);
   const { review_id } = useParams();
   const timeStamp = timeConv(review.created_at);
 
   useEffect(() => {
     getIndividualReview(review_id).then((reviewData) => {
       setReview(reviewData);
+      setLoading(false);
     });
   }, [review_id]);
 
+  if (loading) {
+    return (
+      <div className={styles.loading__spinner}>
+        <GridLoader color="teal" size={25} />
+        <p>Please Wait</p>
+      </div>
+    );
+  }
   return (
     <main id={styles.individual__review}>
       <h3

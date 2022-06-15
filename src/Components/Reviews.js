@@ -8,12 +8,7 @@ import FilterBar from "./Filter-Bar";
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [categories, setCategories] = useState([
-    {
-      description: "Players attempt to uncover each other's hidden role",
-      slug: "Social deduction",
-    },
-  ]);
+  const [categories, setCategories] = useState([{}]);
   const [category, setCategory] = useState("");
 
   useEffect(() => {
