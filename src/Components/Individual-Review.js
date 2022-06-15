@@ -10,22 +10,38 @@ const Review = () => {
     created_at: "2021-01-18T10:01:41.251Z",
   });
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const { review_id } = useParams();
   const timeStamp = timeConv(review.created_at);
 
   useEffect(() => {
-    getIndividualReview(review_id).then((reviewData) => {
-      setReview(reviewData);
-      setLoading(false);
-    });
-  }, [review_id]);
+    getIndividualReview(review_id)
+      .then((reviewData) => {
+        setReview(reviewData);
+        setLoading(false);
+      })
+      .catch((err) => {
+        if (err) {
+          console.log("here");
+          setError(true);
+          setLoading(false);
+        }
+      });
+  }, [review_id, setError]);
 
   if (loading) {
     return (
-      <div className={styles.loading__spinner}>
+      <div id={styles.individual__review} className={styles.loading__spinner}>
         <GridLoader color="teal" size={25} />
         <p>Please Wait</p>
       </div>
+    );
+  }
+  if (error) {
+    return (
+      <p id={styles.individual__review}>
+        The review does not exist in the data base.
+      </p>
     );
   }
   return (
