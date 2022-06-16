@@ -21,7 +21,7 @@ const Comments = ({ review_id }) => {
   }, [review_id]);
 
   return (
-    <ul>
+    <ul className={styles.comment__list}>
       {comments.map((comment) => {
         return (
           <li

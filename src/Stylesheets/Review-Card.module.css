@@ -1,7 +1,7 @@
 .review__card__text {
   border: solid 1px black;
   background-color: aliceblue;
-  width: max-content;
+  width: 80%;
   margin: auto;
   margin-bottom: 5px;
   padding: 5px;
