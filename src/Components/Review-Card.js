@@ -1,34 +1,17 @@
 import styles from "../Stylesheets/Review-Card.module.css";
 import timeConv from "../Utils/Time-Conversion";
+import ReviewCardTitle from "./Review_Card/Review-Card-Title";
 import Endorsements from "./Endorsements";
 import Comments from "./Comments";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const ReviewCard = ({ review }) => {
+  const [clicked, setClicked] = useState(false);
   const timeStamp = timeConv(review.created_at);
 
   return (
     <li id={styles.review__list__item} key={review.title}>
-      <Link to={`/reviews/${review.review_id}`}>
-        <h3
-          className={
-            review.votes >= 25
-              ? styles.title__gold
-              : review.votes >= 10
-              ? styles.title__silver
-              : review.votes >= 5
-              ? styles.title__bronze
-              : styles.title__regular
-          }
-        >
-          {review.title}
-        </h3>
-      </Link>
-      <img
-        className={styles.review__list__img}
-        src={review.review_img_url}
-        alt={review.title}
-      ></img>
+      <ReviewCardTitle review={review}></ReviewCardTitle>
       <section className={styles.review__card__text}>
         <p>
           Review by: <b>{review.owner}</b>
@@ -40,6 +23,14 @@ const ReviewCard = ({ review }) => {
           review_id={review.review_id}
           endorsements={review.votes}
         ></Endorsements>
+
+        <button
+          onClick={() => {
+            setClicked(true);
+          }}
+        >
+          See Comments
+        </button>
         <Comments review_id={review.review_id}></Comments>
       </section>
     </li>
