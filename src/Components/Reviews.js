@@ -4,19 +4,25 @@ import styles from "../Stylesheets/Review-List.module.css";
 import GridLoader from "react-spinners/GridLoader";
 import ReviewCard from "./Review-Card";
 import FilterBar from "./Filter-Bar";
+import { useSearchParams } from "react-router-dom";
 
 const Reviews = () => {
+  const [searchParams] = useSearchParams();
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState("");
+  const [sortBy, setSortBy] = useState(
+    searchParams.get("sort_by") || "created_at"
+  );
+  const [order, setOrder] = useState(searchParams.get("order") || "DESC");
 
   useEffect(() => {
-    getReviews(category).then((reviewData) => {
+    getReviews(category, sortBy, order).then((reviewData) => {
       setReviews(reviewData);
       setLoading(false);
     });
-  }, [category]);
+  }, [category, sortBy, order]);
 
   useEffect(() => {
     getCategories().then((categoryData) => {
@@ -33,7 +39,12 @@ const Reviews = () => {
   }
   return (
     <>
-      <FilterBar categories={categories} setCategory={setCategory}></FilterBar>
+      <FilterBar
+        categories={categories}
+        setCategory={setCategory}
+        setSortBy={setSortBy}
+        setOrder={setOrder}
+      ></FilterBar>
       <ul id={styles.review__list}>
         {reviews.map((review) => {
           return <ReviewCard key={review.title} review={review}></ReviewCard>;

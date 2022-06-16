@@ -4,9 +4,9 @@ const apiCall = axios.create({
   baseURL: "https://funbelivable-reviews.herokuapp.com/api",
 });
 
-export const getReviews = (category) => {
+export const getReviews = (category, sort_by, order) => {
   return apiCall
-    .get("/reviews", { params: { category } })
+    .get("/reviews", { params: { category, sort_by, order } })
     .then(({ data: { reviews } }) => {
       return reviews;
     });
