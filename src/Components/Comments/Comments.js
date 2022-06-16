@@ -1,7 +1,7 @@
-import styles from "../Stylesheets/Comments.module.css";
+import styles from "../../Stylesheets/Comments.module.css";
 import { useState, useEffect } from "react";
-import { getComments } from "../Utils/Api-Calls";
-import timeConv from "../Utils/Time-Conversion";
+import { getComments } from "../../Utils/Api-Calls";
+import timeConv from "../../Utils/Time-Conversion";
 import PostComment from "./Post-Comment";
 
 const Comments = ({ review_id }) => {

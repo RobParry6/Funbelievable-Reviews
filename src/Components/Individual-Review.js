@@ -4,7 +4,7 @@ import { getIndividualReview } from "../Utils/Api-Calls";
 import { useParams } from "react-router-dom";
 import timeConv from "../Utils/Time-Conversion";
 import Endorsements from "./Endorsements";
-import Comments from "./Comments";
+import Comments from "./Comments/Comments";
 import GridLoader from "react-spinners/GridLoader";
 
 const Review = () => {

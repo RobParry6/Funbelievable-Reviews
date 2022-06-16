@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { getReviews, getCategories } from "../Utils/Api-Calls";
 import styles from "../Stylesheets/Review-List.module.css";
 import GridLoader from "react-spinners/GridLoader";
-import ReviewCard from "./Review-Card";
-import FilterBar from "./Filter-Bar";
+import ReviewCard from "./Review_Card/Review-Card";
+import FilterBar from "./Review_Card/Filter-Bar";
 import { useSearchParams } from "react-router-dom";
 
 const Reviews = () => {

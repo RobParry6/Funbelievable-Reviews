@@ -1,4 +1,4 @@
-import styles from "../Stylesheets/Filter-Bar.module.css";
+import styles from "../../Stylesheets/Filter-Bar.module.css";
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
@@ -9,7 +9,7 @@ const FilterBar = ({ categories, setCategory, setSortBy, setOrder }) => {
     searchParams.get("sort_by") || "created_at"
   );
   const [selectedOrder, setSelectedOrder] = useState(
-    searchParams.get("order").toUpperCase() || "DESC"
+    searchParams.get("order") || "DESC"
   );
   const sortByTerms = ["created_at", "title", "designer", "owner", "category"];
 
@@ -31,6 +31,10 @@ const FilterBar = ({ categories, setCategory, setSortBy, setOrder }) => {
   const handleOrderChange = (event) => {
     setSelectedOrder(event.target.value);
   };
+
+  if (selectedOrder === "asc") {
+    setSelectedOrder("ASC");
+  }
 
   return (
     <form className={styles.filter__bar__section} onSubmit={handleSubmit}>
