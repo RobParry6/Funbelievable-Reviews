@@ -4,6 +4,7 @@ import { getIndividualReview } from "../Utils/Api-Calls";
 import { useParams } from "react-router-dom";
 import timeConv from "../Utils/Time-Conversion";
 import Endorsements from "./Endorsements";
+import Comments from "./Comments";
 import GridLoader from "react-spinners/GridLoader";
 
 const Review = () => {
@@ -59,29 +60,34 @@ const Review = () => {
       >
         {" "}
         {review.title}
-      </h3>
-      <section>
-        <p>
-          Review created by: <b>{review.owner}</b>
-        </p>
-        <img
-          className={styles.review__list__img}
-          src={review.review_img_url}
-          alt={review.title}
-        ></img>
-        <p>
-          Game designer for {review.title} is: {review.designer}
-        </p>
-        <p>
-          {review.title} is a game of {review.category}
-        </p>
-        <p>
-          Created at: {timeStamp[0]} on {timeStamp[1]}
-        </p>
-        <Endorsements
-          review_id={review.review_id}
-          endorsements={review.votes}
-        ></Endorsements>
+      </h3>{" "}
+      <p>
+        Review created by: <b>{review.owner}</b>
+      </p>
+      <Endorsements
+        review_id={review.review_id}
+        endorsements={review.votes}
+      ></Endorsements>
+      <section id={styles.flexy}>
+        <section>
+          <img
+            className={styles.review__list__img}
+            src={review.review_img_url}
+            alt={review.title}
+          ></img>
+          <p>
+            Game designer for {review.title} is: {review.designer}
+          </p>
+          <p>
+            {review.title} is a game of {review.category}
+          </p>
+          <p>
+            Created at: {timeStamp[0]} on {timeStamp[1]}
+          </p>
+        </section>
+        <section>
+          <Comments review_id={review_id}></Comments>
+        </section>
       </section>
     </main>
   );

@@ -1,7 +1,7 @@
 import styles from "../Stylesheets/Filter-Bar.module.css";
 import { useState } from "react";
 
-const FilterBar = ({ categories, setCategory }) => {
+const FilterBar = ({ categories, setCategory, loading }) => {
   const [selectedCatagory, setSelectedCategory] = useState("");
 
   const handleSubmit = (event) => {
@@ -21,15 +21,14 @@ const FilterBar = ({ categories, setCategory }) => {
           All Categories
         </option>
         {categories.map((category) => {
+          console.log(category);
           return (
             <option
               className={styles.dropdown__element}
               key={category.slug}
               value={category.slug}
             >
-              {category.slug.split("-").map((word) => {
-                return word[0].toUpperCase() + word.slice(1) + " ";
-              })}
+              {category.slug}
             </option>
           );
         })}

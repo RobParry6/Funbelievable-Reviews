@@ -29,3 +29,9 @@ export const patchEndorsements = (review_id, numberToIncrement) => {
     inc_votes: numberToIncrement,
   });
 };
+
+export const getComments = (review_id) => {
+  return apiCall.get(`reviews/${review_id}/comments`).then(({ data }) => {
+    return data.comments;
+  });
+};
