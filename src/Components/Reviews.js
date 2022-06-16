@@ -8,7 +8,7 @@ import FilterBar from "./Filter-Bar";
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [categories, setCategories] = useState([{}]);
+  const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState("");
 
   useEffect(() => {

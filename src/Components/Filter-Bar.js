@@ -27,7 +27,9 @@ const FilterBar = ({ categories, setCategory, loading }) => {
               key={category.slug + index}
               value={category.slug}
             >
-              {category.slug}
+              {category.slug.split("-").map((word) => {
+                return word[0].toUpperCase() + word.slice(1, word.length) + " ";
+              })}
             </option>
           );
         })}
