@@ -4,21 +4,18 @@ import { getComments } from "../Utils/Api-Calls";
 import timeConv from "../Utils/Time-Conversion";
 
 const Comments = ({ review_id }) => {
-  const [comments, setComments] = useState([
-    {
-      body: "I didn't know dogs could play games",
-      votes: 10,
-      author: "philippaclaire9",
-      review_id: 3,
-      created_at: "2021-01-18T10:01:41.251Z",
-    },
-  ]);
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     getComments(review_id).then((commentData) => {
       setComments(commentData);
     });
   }, [review_id]);
+
+  if (comments.length === 0)
+    return (
+      <p className={styles.no__comments}>There are no comments as of yet.</p>
+    );
 
   return (
     <ul className={styles.comment__list}>
