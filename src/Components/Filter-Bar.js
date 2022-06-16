@@ -20,12 +20,11 @@ const FilterBar = ({ categories, setCategory, loading }) => {
         <option className={styles.dropdown__element} value="">
           All Categories
         </option>
-        {categories.map((category) => {
-          console.log(category);
+        {categories.map((category, index) => {
           return (
             <option
               className={styles.dropdown__element}
-              key={category.slug}
+              key={category.slug + index}
               value={category.slug}
             >
               {category.slug}

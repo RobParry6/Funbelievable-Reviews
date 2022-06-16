@@ -2,19 +2,28 @@ import styles from "../Stylesheets/Comments.module.css";
 import { useState, useEffect } from "react";
 import { getComments } from "../Utils/Api-Calls";
 import timeConv from "../Utils/Time-Conversion";
+import PostComment from "./Post-Comment";
 
 const Comments = ({ review_id }) => {
   const [comments, setComments] = useState([]);
+  const [sent, setSent] = useState(false);
 
   useEffect(() => {
     getComments(review_id).then((commentData) => {
       setComments(commentData);
     });
-  }, [review_id]);
+  }, [review_id, sent]);
 
   if (comments.length === 0)
     return (
-      <p className={styles.no__comments}>There are no comments as of yet.</p>
+      <>
+        <PostComment
+          sent={sent}
+          setSent={setSent}
+          review_id={review_id}
+        ></PostComment>
+        <p className={styles.no__comments}>There are no comments as of yet.</p>
+      </>
     );
 
   return (
@@ -31,6 +40,13 @@ const Comments = ({ review_id }) => {
           </li>
         );
       })}
+      <li className={styles.comment__list__item}>
+        <PostComment
+          sent={sent}
+          setSent={setSent}
+          review_id={review_id}
+        ></PostComment>
+      </li>
     </ul>
   );
 };

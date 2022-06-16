@@ -7,9 +7,10 @@ const UserLoginButton = () => {
 
   const handleClick = () => {
     setLoggedInUser({
-      username: "bainesface",
-      name: "sarah",
-      avatar_url: "https://avatars2.githubusercontent.com/u/24394918?s=400&v=4",
+      username: "jessjelly",
+      name: "Jess Jelly",
+      avatar_url:
+        "https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141",
     });
   };
 
