@@ -45,8 +45,8 @@ const Comments = ({ review_id }) => {
             <p>Comment made by: {comment.author}</p>
             <p>Created at: {timeConv(comment.created_at)}</p>
             <DeleteComment
-              owner={comment.author}
               comment_id={comment.comment_id}
+              owner={comment.author}
               sent={sent}
               setSent={setSent}
             />
