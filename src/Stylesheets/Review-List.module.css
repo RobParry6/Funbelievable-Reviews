@@ -10,3 +10,15 @@
     flex-direction: row;
   }
 }
+
+.loading__spinner,
+.error__message {
+  background-color: tan;
+  border: solid 1px black;
+  border-radius: 15px;
+  margin: auto;
+  margin-top: 175px;
+  padding: 10px;
+  padding-inline: 30px;
+  width: max-content;
+}

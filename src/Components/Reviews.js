@@ -16,13 +16,20 @@ const Reviews = () => {
     searchParams.get("sort_by") || "created_at"
   );
   const [order, setOrder] = useState(searchParams.get("order") || "DESC");
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    getReviews(category, sortBy, order).then((reviewData) => {
-      setReviews(reviewData);
-      setLoading(false);
-    });
-  }, [category, sortBy, order]);
+    getReviews(category, sortBy, order)
+      .then((reviewData) => {
+        setReviews(reviewData);
+        setLoading(false);
+      })
+      .catch(() => {
+        console.log("here");
+        setError(true);
+        setLoading(false);
+      });
+  }, [category, sortBy, order, error]);
 
   useEffect(() => {
     getCategories().then((categoryData) => {
@@ -35,6 +42,13 @@ const Reviews = () => {
       <div className={styles.loading__spinner}>
         <GridLoader color="teal" size={25} />
       </div>
+    );
+  }
+  if (error) {
+    return (
+      <p className={styles.error__message}>
+        Search criteria is not supported, please try again.
+      </p>
     );
   }
   return (
