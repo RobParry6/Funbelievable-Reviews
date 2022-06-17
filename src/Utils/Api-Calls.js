@@ -39,3 +39,7 @@ export const getComments = (review_id) => {
 export const postComment = (review_id, user_name, body) => {
   return apiCall.post(`/reviews/${review_id}/comments`, { user_name, body });
 };
+
+export const deleteComment = (comment_id) => {
+  return apiCall.delete(`/comments/${comment_id}`);
+};
