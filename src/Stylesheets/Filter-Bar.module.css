@@ -3,8 +3,22 @@
 }
 
 .filter__bar__section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   margin: auto;
   margin-top: 170px;
+  width: 80%;
+}
+
+.filter__item {
+  margin: auto;
+  text-align: center;
+}
+
+#filter__bar__submit__button {
+  border-radius: 10px;
+  padding: 30px;
+  width: max-content;
 }
 
 @media only screen and (min-width: 492px) {

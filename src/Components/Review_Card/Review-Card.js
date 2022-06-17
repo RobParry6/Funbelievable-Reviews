@@ -1,8 +1,8 @@
-import styles from "../Stylesheets/Review-Card.module.css";
-import timeConv from "../Utils/Time-Conversion";
-import ReviewCardTitle from "./Review_Card/Review-Card-Title";
-import Endorsements from "./Endorsements";
-import Comments from "./Comments";
+import styles from "../../Stylesheets/Review-Card.module.css";
+import timeConv from "../../Utils/Time-Conversion";
+import ReviewCardTitle from "./Review-Card-Title";
+import Endorsements from "../Endorsements";
+import Comments from "../Comments/Comments";
 import { useState } from "react";
 
 const ReviewCard = ({ review }) => {
@@ -22,6 +22,7 @@ const ReviewCard = ({ review }) => {
         <Endorsements
           review_id={review.review_id}
           endorsements={review.votes}
+          owner={review.owner}
         ></Endorsements>
 
         <button

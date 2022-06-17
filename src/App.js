@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { UserContext } from "./Contexts/UserContext";
 import "./App.css";
-import Header from "./Components/Header";
+import Header from "./Components/Header/Header";
 import Reviews from "./Components/Reviews";
 import Review from "./Components/Individual-Review";
 

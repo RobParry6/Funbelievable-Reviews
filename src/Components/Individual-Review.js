@@ -4,7 +4,7 @@ import { getIndividualReview } from "../Utils/Api-Calls";
 import { useParams } from "react-router-dom";
 import timeConv from "../Utils/Time-Conversion";
 import Endorsements from "./Endorsements";
-import Comments from "./Comments";
+import Comments from "./Comments/Comments";
 import GridLoader from "react-spinners/GridLoader";
 
 const Review = () => {
@@ -67,6 +67,7 @@ const Review = () => {
       <Endorsements
         review_id={review.review_id}
         endorsements={review.votes}
+        owner={review.owner}
       ></Endorsements>
       <section id={styles.flexy}>
         <section>
