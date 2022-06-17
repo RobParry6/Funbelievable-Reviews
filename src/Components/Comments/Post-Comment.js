@@ -1,10 +1,10 @@
 import styles from "../../Stylesheets/Comments.module.css";
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { UserContext } from "../../Contexts/UserContext";
 import { postComment } from "../../Utils/Api-Calls";
 
 const PostComment = ({ review_id, sent, setSent }) => {
-  const { loggedInuser, setLoggedInUser } = useContext(UserContext);
+  const { loggedInuser } = useContext(UserContext);
   const [body, setBody] = useState("");
   const [error, setError] = useState(false);
 

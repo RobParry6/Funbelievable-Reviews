@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { getComments } from "../../Utils/Api-Calls";
 import timeConv from "../../Utils/Time-Conversion";
 import PostComment from "./Post-Comment";
+import DeleteComment from "./Delete-Comment";
 
 const Comments = ({ review_id }) => {
   const [comments, setComments] = useState([]);
@@ -43,6 +44,12 @@ const Comments = ({ review_id }) => {
             <h4>{comment.body}</h4>
             <p>Comment made by: {comment.author}</p>
             <p>Created at: {timeConv(comment.created_at)}</p>
+            <DeleteComment
+              comment_id={comment.comment_id}
+              owner={comment.author}
+              sent={sent}
+              setSent={setSent}
+            />
           </li>
         );
       })}
