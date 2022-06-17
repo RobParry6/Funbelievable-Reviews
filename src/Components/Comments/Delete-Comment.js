@@ -1,3 +1,4 @@
+import styles from "../../Stylesheets/Comments.module.css";
 import { useContext } from "react";
 import { UserContext } from "../../Contexts/UserContext";
 import { deleteComment } from "../../Utils/Api-Calls";
@@ -15,7 +16,11 @@ const DeleteComment = ({ comment_id, owner, sent, setSent }) => {
     owner === loggedInuser.username &&
     loggedInuser.username !== "Not Logged In"
   ) {
-    return <button onClick={handleClick}>Delete Me!</button>;
+    return (
+      <button id={styles.delete__comment__button} onClick={handleClick}>
+        Delete Me!
+      </button>
+    );
   }
 };
 

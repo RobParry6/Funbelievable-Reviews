@@ -1,0 +1,14 @@
+#endorsement__button {
+  background-color: bisque;
+  border-radius: 15px;
+  padding: 5px;
+}
+
+#endorsement__button:hover {
+  background-color: pink;
+  cursor: pointer;
+}
+
+#endorsement__button:focus {
+  background-color: magenta;
+}

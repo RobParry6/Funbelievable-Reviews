@@ -1,3 +1,4 @@
+import styles from "../Stylesheets/Endorsements.module.css";
 import { useContext } from "react";
 import { UserContext } from "../Contexts/UserContext";
 
@@ -9,7 +10,7 @@ const EndorsementButton = ({ handleClick, owner }) => {
     loggedInuser.username !== "Not Logged In"
   )
     return (
-      <button onClick={handleClick} value={1}>
+      <button id={styles.endorsement__button} onClick={handleClick} value={1}>
         Endorse this Review
       </button>
     );

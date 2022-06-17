@@ -23,3 +23,27 @@
   margin-top: 6px;
   max-width: 90%;
 }
+
+#input {
+  border-radius: 15px;
+  margin-inline: 10px;
+  padding: 5px;
+}
+
+#add__comment__button,
+#delete__comment__button {
+  background-color: bisque;
+  border-radius: 15px;
+  padding: 5px;
+}
+
+#add__comment__button:hover,
+#delete__comment__button:hover {
+  background-color: pink;
+  cursor: pointer;
+}
+
+#add__comment__button:focus,
+#delete__comment__button :focus {
+  background-color: magenta;
+}

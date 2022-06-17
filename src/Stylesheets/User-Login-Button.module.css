@@ -5,7 +5,21 @@
   border-radius: 16px;
   font-size: medium;
   margin: 5px;
-  padding: 6px;
+  max-height: 2rem;
+  padding: 3px;
   padding-inline: 12px;
   width: max-content;
+}
+
+#header__button:hover {
+  background-color: pink;
+  cursor: pointer;
+}
+
+#header__button:focus {
+  background-color: magenta;
+}
+
+#log__out__section {
+  max-height: 40px;
 }

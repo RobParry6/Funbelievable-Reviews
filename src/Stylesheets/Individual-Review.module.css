@@ -31,15 +31,60 @@
 }
 
 .title__bronze {
+  background-color: #a97142;
   background-image: url("../Images/Bronze.webp");
 }
 
+.title__bronze:hover {
+  animation: pulseBronze 2s alternate infinite;
+}
+
 .title__silver {
+  background-color: #aaa9ad;
   background-image: url("../Images/Silver.jpeg");
 }
 
+.title__silver:hover {
+  animation: pulseSilver 2s alternate infinite;
+}
+
 .title__gold {
+  background-color: #d4af37;
   background-image: url("../Images/Gold.jpeg");
+}
+
+.title__gold:hover {
+  animation: pulseGold 2s alternate infinite;
+}
+
+@keyframes pulseGold {
+  from {
+    box-shadow: 0px 0px 1px #b58c05;
+  }
+
+  to {
+    box-shadow: 0px 0px 10rem #b58c05;
+  }
+}
+
+@keyframes pulseSilver {
+  from {
+    box-shadow: 0px 0px 1px #807f83;
+  }
+
+  to {
+    box-shadow: 0px 0px 10rem #807f83;
+  }
+}
+
+@keyframes pulseBronze {
+  from {
+    box-shadow: 0px 0px 1px #a97142;
+  }
+
+  to {
+    box-shadow: 0px 0px 10rem #a97142;
+  }
 }
 
 @media only screen and (min-width: 492px) {

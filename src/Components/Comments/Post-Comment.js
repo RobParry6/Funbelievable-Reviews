@@ -31,8 +31,8 @@ const PostComment = ({ review_id, sent, setSent }) => {
     return (
       <li className={styles.comment__list__item}>
         <form onSubmit={handleSubmit}>
-          <input onChange={handleChange} value={body}></input>
-          <button>Add Comment</button>
+          <input id={styles.input} onChange={handleChange} value={body}></input>
+          <button id={styles.add__comment__button}>Add Comment</button>
         </form>
       </li>
     );
