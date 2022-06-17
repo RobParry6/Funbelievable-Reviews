@@ -1,8 +1,9 @@
 import styles from "../Stylesheets/Endorsements.module.css";
+import EndorsementButton from "./Endorsement-Button";
 import { useState, useEffect } from "react";
 import { patchEndorsements, getIndividualReview } from "../Utils/Api-Calls";
 
-const Endorsements = ({ endorsements, review_id }) => {
+const Endorsements = ({ endorsements, review_id, owner }) => {
   const [currentEndorsements, setCurrentEndorsements] = useState(endorsements);
   const [error, setError] = useState(null);
 
@@ -48,9 +49,10 @@ const Endorsements = ({ endorsements, review_id }) => {
       <p>
         Current Endorsement Count: <b>{currentEndorsements}</b>
       </p>
-      <button onClick={handleClick} value={1}>
-        Endorse this Review
-      </button>
+      <EndorsementButton
+        owner={owner}
+        handleClick={handleClick}
+      ></EndorsementButton>
     </>
   );
 };

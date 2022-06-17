@@ -22,6 +22,7 @@ const ReviewCard = ({ review }) => {
         <Endorsements
           review_id={review.review_id}
           endorsements={review.votes}
+          owner={review.owner}
         ></Endorsements>
 
         <button

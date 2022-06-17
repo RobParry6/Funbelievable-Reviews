@@ -14,6 +14,8 @@ const Review = () => {
   const [timeStamp, setTimeStamp] = useState([]);
   const { review_id } = useParams();
 
+  console.log(review);
+
   useEffect(() => {
     getIndividualReview(review_id)
       .then((reviewData) => {
@@ -67,6 +69,7 @@ const Review = () => {
       <Endorsements
         review_id={review.review_id}
         endorsements={review.votes}
+        owner={review.owner}
       ></Endorsements>
       <section id={styles.flexy}>
         <section>
