@@ -27,12 +27,16 @@ const PostComment = ({ review_id, sent, setSent }) => {
   };
 
   if (error) return <p>User Not logged in</p>;
-  return (
-    <form onSubmit={handleSubmit}>
-      <input onChange={handleChange} value={body}></input>
-      <button>Add Comment</button>
-    </form>
-  );
+  if (loggedInuser.username !== "Not Logged In") {
+    return (
+      <li className={styles.comment__list__item}>
+        <form onSubmit={handleSubmit}>
+          <input onChange={handleChange} value={body}></input>
+          <button>Add Comment</button>
+        </form>
+      </li>
+    );
+  }
 };
 
 export default PostComment;

@@ -14,8 +14,6 @@ const Review = () => {
   const [timeStamp, setTimeStamp] = useState([]);
   const { review_id } = useParams();
 
-  console.log(review);
-
   useEffect(() => {
     getIndividualReview(review_id)
       .then((reviewData) => {

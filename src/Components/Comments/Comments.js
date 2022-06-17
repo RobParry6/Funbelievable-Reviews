@@ -28,6 +28,12 @@ const Comments = ({ review_id }) => {
 
   return (
     <ul className={styles.comment__list}>
+      <PostComment
+        className={styles.comment__list__item}
+        sent={sent}
+        setSent={setSent}
+        review_id={review_id}
+      ></PostComment>
       {comments.map((comment) => {
         return (
           <li
@@ -40,13 +46,6 @@ const Comments = ({ review_id }) => {
           </li>
         );
       })}
-      <li className={styles.comment__list__item}>
-        <PostComment
-          sent={sent}
-          setSent={setSent}
-          review_id={review_id}
-        ></PostComment>
-      </li>
     </ul>
   );
 };
